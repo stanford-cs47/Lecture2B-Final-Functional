@@ -5,53 +5,40 @@ import { Images, Colors, Metrics } from '../Themes';
 /*
   Displays a Jedi ID Card
 */
-export default class StarWarsCard extends React.Component {
+const StarWarsCard = (jedi) => {
+  return (
+    <View style={styles.card}>
+      <View style={styles.pictureView}>
+        <Image style={styles.picture}
+         source={Images.jedi1}/>
 
-  constructor(props){
-    super(props);
-
-    //See what props our StarWarsCard renders with
-    console.log(JSON.stringify(props));
-  }
-
-  render() {
-
-    return (
-      <View style={styles.card}>
-
-        <View style={styles.pictureView}>
-          <Image style={styles.picture}
-           source={Images.jedi1}/>
-
-          <View style={styles.pictureDetails}>
-            <Text style={ { fontWeight: 'bold' } }>{this.props.jedi.name}</Text>
-            <Text style={ { fontWeight: '500' } }>{this.props.jedi.gender}</Text>
-          </View>
-        </View>
-
-        <View style={styles.jediRowItem}>
-          <Text style={ { fontWeight: 'bold' } }>Birth Year</Text>
-          <Text style={ { fontWeight: 'bold' } }>Height</Text>
-          <Text style={ { fontWeight: 'bold' } }>Weight</Text>
-        </View>
-        <View style={[styles.jediRowItem, { marginTop: 0 }]}>
-          <Text>{this.props.jedi.birthYear}</Text>
-          <Text>{this.props.jedi.height}</Text>
-          <Text>{this.props.jedi.weight}</Text>
-        </View>
-
-        <View style={styles.jediRowItem}>
-          <Text style={ { fontWeight: 'bold' } }>Hair Color</Text>
-          <Text style={ { fontWeight: 'bold' } }>Eye Color</Text>
-        </View>
-        <View style={[styles.jediRowItem, { marginTop: 0 }]}>
-          <Text>{this.props.jedi.hairColor}</Text>
-          <Text>{this.props.jedi.eyeColor}</Text>
+        <View style={styles.pictureDetails}>
+          <Text style={ { fontWeight: 'bold' } }>{jedi.name}</Text>
+          <Text style={ { fontWeight: '500' } }>{jedi.gender}</Text>
         </View>
       </View>
-    );
-  }
 
+      <View style={styles.jediRowItem}>
+        <Text style={ { fontWeight: 'bold' } }>Birth Year</Text>
+        <Text style={ { fontWeight: 'bold' } }>Height</Text>
+        <Text style={ { fontWeight: 'bold' } }>Weight</Text>
+      </View>
+      <View style={[styles.jediRowItem, { marginTop: 0 }]}>
+        <Text>{jedi.birthYear}</Text>
+        <Text>{jedi.height}</Text>
+        <Text>{jedi.weight}</Text>
+      </View>
+
+      <View style={styles.jediRowItem}>
+        <Text style={ { fontWeight: 'bold' } }>Hair Color</Text>
+        <Text style={ { fontWeight: 'bold' } }>Eye Color</Text>
+      </View>
+      <View style={[styles.jediRowItem, { marginTop: 0 }]}>
+        <Text>{jedi.hairColor}</Text>
+        <Text>{jedi.eyeColor}</Text>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -85,3 +72,5 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+export default StarWarsCard;
